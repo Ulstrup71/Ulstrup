@@ -106,7 +106,7 @@
     )
 
     -- Glsvaern 1.0 m med haandliste
-    fn railing nm axis a0 a1 c z0 matG matS =
+    fn mkRailing nm axis a0 a1 c z0 matG matS =
     (
         segBox (nm + "_Glas") axis a0 a1 (c - 0.01) (c + 0.01) z0 (z0 + 1.0) matG "HUS_Vaern"
         segBox (nm + "_Haandliste") axis a0 a1 (c - 0.025) (c + 0.025) (z0 + 1.0) (z0 + 1.05) matS "HUS_Vaern"
@@ -196,10 +196,10 @@
     -- soejler under taget
     for y in #(0.0, D - 0.2) do mkBox "Soejle" (-TER) y 0.0 (-TER + 0.2) (y + 0.2) H mStaal "HUS_Soejler"
     -- vaern
-    railing "Vaern_N" #x (-TER + 0.2) 0.0 0.05 0.0 mGlas mStaal
-    railing "Vaern_V" #y 0.2 (BAL - 0.05) (-TER + 0.05) 0.0 mGlas mStaal
-    railing "Vaern_S" #x (-TER) LK (BAL - 0.05) 0.0 mGlas mStaal
-    railing "Vaern_O" #y D BAL (LK - 0.05) 0.0 mGlas mStaal
+    mkRailing "Vaern_N" #x (-TER + 0.2) 0.0 0.05 0.0 mGlas mStaal
+    mkRailing "Vaern_V" #y 0.2 (BAL - 0.05) (-TER + 0.05) 0.0 mGlas mStaal
+    mkRailing "Vaern_S" #x (-TER) LK (BAL - 0.05) 0.0 mGlas mStaal
+    mkRailing "Vaern_O" #y D BAL (LK - 0.05) 0.0 mGlas mStaal
 
     -- ============================================================== KAELDER
     local zKt = (-0.35)     -- underside af daek over kaelder
@@ -234,9 +234,9 @@
         local x0 = 4.1 + (i - 1) * 0.25
         mkBox "Trappetrin" x0 3.8 (zK + i * rise - 0.05) (x0 + 0.27) 4.7 (zK + i * rise) mTrae "HUS_Trappe"
     )
-    railing "Trappevaern" #x 4.1 7.5 3.78 0.0 mGlas mStaal
-    railing "Trappevaern" #x 4.1 7.34 4.72 0.0 mGlas mStaal
-    railing "Trappevaern" #y 3.75 4.75 4.13 0.0 mGlas mStaal
+    mkRailing "Trappevaern" #x 4.1 7.5 3.78 0.0 mGlas mStaal
+    mkRailing "Trappevaern" #x 4.1 7.34 4.72 0.0 mGlas mStaal
+    mkRailing "Trappevaern" #y 3.75 4.75 4.13 0.0 mGlas mStaal
 
     ---------------------------------------------------------------- nedre overdaekket terrasse
     mkBox "Terrasse_Nedre" (-TER - 0.5) (-0.5) (zK - 0.05) 0.0 (BAL + 0.5) zK mFlise "HUS_Terrasser"
